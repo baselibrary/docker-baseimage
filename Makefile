@@ -9,12 +9,11 @@ build: $(VERSIONS)
 release: $(VERSIONS)
 	docker push ${NAME}
 
-sync-branches:
+branches:
 	git fetch $(REPO) master
 	@$(foreach tag, $(VERSIONS), git branch -f $(tag) FETCH_HEAD;)
 	@$(foreach tag, $(VERSIONS), git push $(REPO) $(tag);)
 	@$(foreach tag, $(VERSIONS), git branch -D $(tag);)
-
 
 .PHONY: all build $(VERSIONS)
 $(VERSIONS):
