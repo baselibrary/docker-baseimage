@@ -14,3 +14,5 @@
 ### Usage
 
     docker run -it --rm baselibrary/baseimage
+
+    docker run -it --rm baselibrary/baseimage /bin/bash
