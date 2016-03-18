@@ -6,29 +6,26 @@ ENV DEBIAN_FRONTEND noninteractive
 ## Repository
 RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7BB9C367 &&\
-  echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list
+  echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list &&\
+  sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 ## Packages
 RUN \
   apt-get update &&\
-  apt-get dist-upgrade -y --no-install-recommends &&\
-  apt-get install -y --no-install-recommends curl wget vim unzip ansible apt-transport-https language-pack-en
+  apt-get install -y --no-install-recommends curl wget vim unzip ansible apt-transport-https language-pack-en &&\
+  rm -rf /var/lib/apt/lists/*
 
-## Additional
+## Locales
 RUN \
   locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
 
-## Cleanup
-RUN \
-  apt-get autoclean -y &&\
-  apt-get autoremove -y &&\
-  rm -rf /tmp/*  &&\
-  rm -rf /var/tmp/* &&\
-  rm -rf /var/lib/apt/lists/*
-
 ## Configurations
-ADD config/hosts       /etc/ansible/hosts
-ADD config/ansible.cfg /etc/ansible/ansible.cfg
+ADD config/hosts /etc/ansible/hosts
+
+## Environments
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:UTF-8
+ENV LC_ALL en_US.UTF-8
 
 CMD ["/bin/bash"]
 
