@@ -3,7 +3,7 @@ REPO     = git@github.com:baselibrary/docker-baseimage.git
 REGISTRY = thoughtworks.io
 VERSIONS = $(foreach df,$(wildcard */Dockerfile),$(df:%/Dockerfile=%))
 
-all: build push 
+all: build 
 
 build: $(VERSIONS)
 	@for version in $(VERSIONS); do \
