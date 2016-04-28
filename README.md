@@ -4,8 +4,9 @@
 
 ### Base Docker Image
 
-* `latest`: baseimage 1.0.0
-* `1.0.0` : baseimage 1.0.0
+* `latest`: baseimage 2.0.0
+* `2.0.0` : baseimage 2.0.0 (ubuntu 16.04)
+* `1.0.0` : baseimage 1.0.0 (ubuntu 14.04)
 
 ### Installation
 
