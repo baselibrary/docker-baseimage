@@ -1,6 +1,6 @@
 NAME     = baselibrary/baseimage
 REPO     = git@github.com:baselibrary/docker-baseimage.git
-REGISTRY = thoughtworks.io
+REGISTRY = thoughtworks.ga
 VERSIONS = $(foreach df,$(wildcard */Dockerfile),$(df:%/Dockerfile=%))
 
 all: build 
