@@ -6,8 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ## Repository
 RUN \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7BB9C367 &&\
-  echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list &&\
-  sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+  echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" > /etc/apt/sources.list.d/ansible.list
 
 ## Packages
 RUN \
