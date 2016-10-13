@@ -17,15 +17,15 @@ RUN \
 
 ## Locales
 RUN \
-  locale-gen en_US.UTF-8 && update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+  locale-gen en_US.UTF-8 &&\
+  update-locale LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
 
 ## Configurations
 ADD config/hosts /etc/ansible/hosts
 
 ## Environments
 ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:UTF-8
 ENV LC_ALL en_US.UTF-8
+ENV LANGUAGE en_US:UTF-8
 
 CMD ["/bin/bash"]
-
