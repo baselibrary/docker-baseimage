@@ -12,7 +12,6 @@
 
     docker pull baselibrary/baseimage
 
-
 ### Usage
 
     docker run -it --rm baselibrary/baseimage
